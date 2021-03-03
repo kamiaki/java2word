@@ -19,10 +19,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @Author: GaoLei
- * @Date: 2019/10/16 11:59
- * @Blog https://blog.csdn.net/m0_37903882
- * @Description: Excel ,word 导出
+ * 这里的模板 是word写完之后 保存 xml
+ * 然后再修改后缀 为ftl
+ * 然后根据ftl 文件进行修改，然后使用
  */
 @Controller
 public class BaseController {
