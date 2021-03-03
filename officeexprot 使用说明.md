@@ -13,7 +13,13 @@ https://github.com/kmood/officeexport-java
 ```
 文本占位符： {key}    例：{title};
 图片占位符： {^key^}   例：{^pic^}; 
-插入图片需要先插入一张图片，生成xml，然后给图片base64码，后面的那个标签，加一个 alt="{^key^}" 去替换掉原有图片
+
+插入图片需要先插入一张占位图片，生成xml，
+然后给图片base64码，后面的那个标签，
+加一个 alt="{^key^}" 去替换掉原有图片
+注意插入多长图片的时候，要用不同的图片做占位，
+一般是高处的图片也相应在xml高出，
+一般查找  style="position 的前面 插入 alt="",最后一个 style不是
 
 文本行循环符： [key@alias  key]    例：[titles@t  {t.title}  titles]
 单元行循环符： [#key@alias#    #key#]   例：[#titles@t#  {t.title}  #titles#]
