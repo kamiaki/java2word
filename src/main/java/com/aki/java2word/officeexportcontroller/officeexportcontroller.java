@@ -57,12 +57,33 @@ public class officeexportcontroller {
         String xmlPath = classLoader.getResource("./model").toURI().getPath();
         // 组装参数 不能用this那种方式创建
         Map<String, Object> map = new HashMap<>();
-        map.put("zzdhm", "kmood-制造单号码");
+        map.put("zzdhm", "kmood-制造单号码aaaa");
         map.put("ydwcrq", "kmood-预定完成日期");
         map.put("cpmc", "kmood-产品名称");
         map.put("jyrq", "kmood-交运日期");
         map.put("sl", "kmood-数量");
         map.put("xs", "kmood-箱数");
+
+        List list = new LinkedList();
+        Map map1 = new LinkedHashMap();
+        map1.put("title1", "标题1");
+        map1.put("title2", "标题2");
+        map1.put("title3", "标题3");
+        list.add(map1);
+        Map map2 = new LinkedHashMap();
+        map2.put("title1", "标题1");
+        map2.put("title2", "标题2");
+        map2.put("title3", "标题3");
+        list.add(map2);
+        map.put("titles", list);
+        URL introUrl = classLoader.getResource("./picture/exportTestPicture-intro.png");
+        URL codeUrl = classLoader.getResource("./picture/exportTestPicture-code.png");
+        URL titleUrl = classLoader.getResource("./picture/exportTestPicture-title.png");
+        map.put("intro", Base64.getEncoder().encodeToString(FileUtils.readToBytesByFilepath(introUrl.toURI().getPath())));
+        map.put("code", Base64.getEncoder().encodeToString(FileUtils.readToBytesByFilepath(codeUrl.toURI().getPath())));
+        map.put("title", Base64.getEncoder().encodeToString(FileUtils.readToBytesByFilepath(titleUrl.toURI().getPath())));
+
+
         List<Object> zxsmList = new ArrayList<>();
         Map<String, Object> zxsmmap = new HashMap<>();
         zxsmmap.put("xh", "kmood-箱号");
@@ -109,7 +130,7 @@ public class officeexportcontroller {
         map.put("intro", Base64.getEncoder().encodeToString(FileUtils.readToBytesByFilepath(introUrl.toURI().getPath())));
         map.put("code", Base64.getEncoder().encodeToString(FileUtils.readToBytesByFilepath(codeUrl.toURI().getPath())));
         map.put("title", Base64.getEncoder().encodeToString(FileUtils.readToBytesByFilepath(titleUrl.toURI().getPath())));
-        //编译输出
+//        //编译输出
         DocumentProducer dp = new DocumentProducer(ActualModelPath);
         String modelFile = dp.Complie(xmlPath, "picture.xml", true);
         log.info("使用的模板文件:{}", modelFile);
