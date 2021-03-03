@@ -18,6 +18,11 @@
     </properties>
     <dependencies>
 
+        <dependency>
+            <groupId>com.github.kmood</groupId>
+            <artifactId>officeexport-java</artifactId>
+            <version>1.0.1.3-RELEASE</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
