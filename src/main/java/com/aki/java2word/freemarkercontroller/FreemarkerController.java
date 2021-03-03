@@ -1,4 +1,4 @@
-package com.aki.java2word.controller;
+package com.aki.java2word.freemarkercontroller;
 
 import com.aki.java2word.po.Study;
 import com.aki.java2word.po.UserInfo;
@@ -24,7 +24,7 @@ import java.util.Map;
  * 然后根据ftl 文件进行修改，然后使用
  */
 @Controller
-public class BaseController {
+public class FreemarkerController {
     /**
      * 导出用户 Word
      * @throws IOException
@@ -116,7 +116,7 @@ public class BaseController {
      * 图片流转base64字符串
      * */
     public String imageToString() {
-        URL resource = BaseController.class.getClassLoader().getResource("static/img/a.png");
+        URL resource = FreemarkerController.class.getClassLoader().getResource("static/img/a.png");
         String imgFile = resource.getPath();
         InputStream in;
         byte[] data = null;
